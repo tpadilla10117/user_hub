@@ -13,3 +13,4 @@ function fetchUsers() {
 fetchUsers().then(function (data) {
     console.log(data);
   });
+
