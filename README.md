@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# Project Description:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Tecg Stack:
+
+## Getting Started Locally:
+
+Local Instructions:
+
+### `npm i sass` -> css styling library
+### `npm i morgan` -> for logging middleware
+### `npm i dotenv` -> for .env
 
 ## Available Scripts
 
