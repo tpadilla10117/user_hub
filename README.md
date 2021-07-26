@@ -9,6 +9,8 @@ Local Instructions:
 ### `npm i sass` -> css styling library
 ### `npm i morgan` -> for logging middleware
 ### `npm i dotenv` -> for .env
+### `npm i classnames` -> js utility to conditionally join classNames together
+### `npm i react-router-dom` -> for React Router
 
 ## Available Scripts
 
