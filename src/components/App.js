@@ -9,20 +9,28 @@ function App() {
 
   //Testing fetch in console - works:
   
-  function fetchUsers() {
+  async function fetchUsers() {
       return fetch(`${BASE_URL}/users`).then( function (response) {
-         return response.json();
+         return response.json().then(function (data) { return data } )
       }).catch(function (error) {
           console.error(error);
       })
   };
+  
   /* fetchUsers().then(function (data) {
     console.log(data);
-    return data
+    return data;
   }); */
 
-  const [ user, setUser ] = useState( fetchUsers() );
-console.log("Here are my users:", user)
+  /* useEffect( () => {
+    setUser(fetchUsers() );
+  }, []) */
+
+  console.log( "Here is the fetchUser invoke:", fetchUsers() )
+
+  const [ user, setUser ] = useState( null);
+
+console.log("Here is my user state:", user)
 
 
 
