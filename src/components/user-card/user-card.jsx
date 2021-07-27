@@ -1,7 +1,13 @@
 import React from 'react';
 
-const UserCard = (user) => {
+/* The user-card components, rendered with data from renderUser function */
 
+const UserCard = (props) => {
+
+    const {user} = props;
+    console.log("From the user component:", user)
+
+    
     return <>
         <div className="user-card">
             <header>
