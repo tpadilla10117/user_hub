@@ -15,8 +15,8 @@ const UserCard = (props) => {
             </header>
             <section className="company-info">
                 <p><b>Contact:</b>{user.email}</p>
-                <p><b>Works for:</b>{user.company.name}</p>
-                <p><b>Company creed:</b>{user.company.catchPhrase}</p>
+                <p><b>Works for:</b>{user.company}</p>
+                <p><b>Company creed:</b>{user.company}</p>
             </section>
             <footer>
                 <button className="load-posts">POSTS BY {user.username}</button>

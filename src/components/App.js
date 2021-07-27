@@ -29,8 +29,7 @@ console.log("Here are my users:", user)
 
   return (
     <div>
-      <UserList>
-        <UserCard user={user}/>
+      <UserList content={ <UserCard user={user}/> }>
       </UserList>
       <SectionWrapper id="instructions" className="active">
         
