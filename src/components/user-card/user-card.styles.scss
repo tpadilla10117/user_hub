@@ -2,3 +2,34 @@
     background: #aef;
     font-family: sans-serif;
   };
+
+.user-card header,
+.user-card section,
+.user-card footer {
+    padding: 8px;
+};
+
+.user-card section {
+    border-bottom: 1px solid #888;
+    border-top: 1px solid #888;
+};
+
+.user-card section p:not(:last-of-type) {
+    margin-bottom: 8px;
+};
+
+.user-card footer {
+    display: flex;
+    flex-direction: column;
+};
+
+.user-card footer button {
+    padding: 8px;
+    font-size: 16px;
+    background: #fff;
+    text-transform: uppercase;
+};
+
+.user-card footer button:not(:last-of-type) {
+    margin-bottom: 8px;
+};

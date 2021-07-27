@@ -7,9 +7,18 @@ const UserCard = (props) => {
     const {user} = props;
     console.log("From the user component:", user)
 
-    
-    return <>
-        <div className="user-card">
+    const userData = user;
+    console.log("Here is my userData", userData)
+
+    //Im getting back undefined when I want individual values
+
+    //comes back as an object, which is why no array methods work
+    console.log("Here is an example of user data", typeof user)
+
+    /* To template user-cards in the UI: */
+    const renderUser = (user, index) => {
+        return(
+            <div className="user-card" key={"user-" + index}>
             <header>
                 <h2>{user.name}</h2>
             </header>
@@ -23,7 +32,14 @@ const UserCard = (props) => {
                 <button className="load-albums">ALBUMS BY {user.username}</button> 
             </footer>
         </div>
-    </>
+        )
+    };
+    
+    return(
+        <>
+        {/* {userData.map(renderUser) }; */}
+        </>
+    )
 }
 
 export default UserCard;
