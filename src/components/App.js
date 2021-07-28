@@ -6,29 +6,37 @@ function App() {
 
   //Should I make API call for user data here?
   const BASE_URL = "https://jsonplace-univclone.herokuapp.com";
-
+  const [ user, setUser ] = useState(null);
   //Testing fetch in console - works:
   
-  async function fetchUsers() {
-      return fetch(`${BASE_URL}/users`).then( function (response) {
-         return response.json().then(function (data) { return data } )
-      }).catch(function (error) {
+  function fetchUsers() {
+      fetch(`${BASE_URL}/users`).then( response => response.json() )
+      .then( result => setUser(result))
+      .catch(function (error) {
           console.error(error);
       })
   };
+
+/*   async function fetchUsers() {
+    
+    const response = await fetch(`${BASE_URL}/users`);
+    const json = await response.json();
+    console.log("Here is the data in the asyc call:", json[0]);
+    setUser(json.data)
+    console.log("Here is the user data in the asyc call:", json.data);
+  } */
   
   /* fetchUsers().then(function (data) {
     console.log(data);
     return data;
   }); */
 
-  /* useEffect( () => {
-    setUser(fetchUsers() );
-  }, []) */
+  /* fetchUsers(); */
+  /* useEffect( function effectFunction() {
+    fetchUsers();
+  }, []); */
+  /* fetchUsers() */
 
-  console.log( "Here is the fetchUser invoke:", fetchUsers() )
-
-  const [ user, setUser ] = useState( null);
 
 console.log("Here is my user state:", user)
 
