@@ -4,8 +4,10 @@ import React from 'react';
 
 const UserCard = (props) => {
 
-    const {user} = props;
+    const { user } = props;
     console.log("From the user component:", user)
+    console.log("Result of calling the User in component user-card:", user)
+
 
     /* const tester = user.map(item => ({ name: item.name, email: item.email}))
     console.log(tester); */
@@ -35,7 +37,7 @@ const UserCard = (props) => {
         )
     };
     
-    return(
+    return (
         <>
         {/* {user.map(renderUser) }; */}
         </>
