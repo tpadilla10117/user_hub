@@ -47,7 +47,7 @@ const UserCard = (props) => {
     
     return (
         <>
-        {user && user.map(renderUser)}; {/* Needed ```user && user.map``` to work*/}
+        {user && user.map(renderUser)}; {/* Needed ```user && user.map``` to load data and avoid an `undefined` value on initial render*/}
         </>
     )
 }
