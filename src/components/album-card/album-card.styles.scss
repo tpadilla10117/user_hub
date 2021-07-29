@@ -1,0 +1,10 @@
+.album-card {
+    display: grid;
+    grid-template-rows: 36px auto;
+    color: #ffe;
+  }
+  
+.album-card header {
+background: #111;
+padding: 12px;
+}

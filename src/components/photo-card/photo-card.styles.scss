@@ -1,0 +1,26 @@
+.photo-card {
+    border: 1px solid #ffe;
+    display: flex;
+    align-items: stretch;
+    background: #fff;
+  }
+  
+.photo-card:not(:last-of-type) {
+    margin-right: 24px;
+}
+
+.photo-card figure {
+    color: black;
+    font-size: 18px;
+    margin-top: 12px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.photo-card a {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    cursor: pointer;
+}

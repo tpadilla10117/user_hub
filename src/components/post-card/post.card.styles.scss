@@ -1,0 +1,27 @@
+.post-card {
+    background: #eee;
+    border: 2px solid #29a;
+  }
+  
+.post-card header {
+    padding: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #777;
+    background: rgb(31, 75, 83);
+    color: #fee;
+}
+
+.post-card h2 {
+    font-family: sans-serif;
+}
+
+.post-card p {
+    padding: 16px 8px;
+    color: #111;
+}
+
+.post-card footer {
+    padding: 8px;
+    border-top: 1px solid #777;
+    background: rgb(83, 205, 226);
+}
