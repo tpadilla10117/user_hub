@@ -10,6 +10,7 @@ const UserCard = (props) => {
     const [ user, setUser ] = useState(null);
     const { isActiveSectionVisible, setIsActiveSectionVisible } = props;
 
+/* This takes care of the fetch call needed for the renderUser in the DOM render: */
     useEffect( () => { 
 
         async function fetchUsers() {
@@ -26,6 +27,23 @@ const UserCard = (props) => {
         fetchUsers();
         
       }, []);
+
+
+/* Helper Function to toggle Active button; works with toggleActiveClass() below:*/
+    function toggleActiveButton() {
+        /* changeCardState({...cardState, activeObject: cardState.objects[index]}) */
+    }
+
+/* Helper Function to toggle active classNames in the button based on some value:*/
+    function toggleActiveClass() {
+        console.log("clicked")
+        return /* isActiveSectionVisible === false */ user ? "active button-active": "button-inactive"
+    }
+/* function toggleActiveStyles(index) {
+    return cardState.objects[index] === cardState.activeObject ? "card__inner is-flipped active" : "card__inner";
+} */
+
+
       
     /* To template user-cards in the UI: */
     const renderUser = (user, index) => {
@@ -41,7 +59,7 @@ const UserCard = (props) => {
             </section>
             <footer>
                 {/* Using custom-button component here */}
-                <CustomButton children={`POSTS BY ${user.username}`}/>
+                <CustomButton children={`POSTS BY ${user.username}`} toggleActiveClass/* className={toggleActiveClass()} */ onClick={() => toggleActiveClass()}/>
                 <CustomButton children={`ALBUMS BY ${user.username}`}/>
             </footer>
         </div>
