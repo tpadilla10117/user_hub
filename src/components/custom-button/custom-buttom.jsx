@@ -1,6 +1,7 @@
 import React from 'react';
 import './custom-button.styles.scss';
 
+//May need to update className with a conditional for 'active' class:
 const CustomButton = ( {children, ...otherProps} ) => (
     <button type="button" className={`custom-button`} {...otherProps}>
         {children}

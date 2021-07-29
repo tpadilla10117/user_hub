@@ -8,6 +8,7 @@ const UserCard = (props) => {
     
     const BASE_URL = "https://jsonplace-univclone.herokuapp.com";
     const [ user, setUser ] = useState(null);
+    const { isActiveSectionVisible, setIsActiveSectionVisible } = props;
 
     useEffect( () => { 
 
