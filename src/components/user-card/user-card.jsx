@@ -38,6 +38,7 @@ const UserCard = (props) => {
                 <p><b>Company creed:</b>{user.company.catchPhrase}</p>
             </section>
             <footer>
+                {/* Put the custom-button here */}
                 <button className="load-posts">POSTS BY {user.username}</button>
                 <button className="load-albums">ALBUMS BY {user.username}</button> 
             </footer>

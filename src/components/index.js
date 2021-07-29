@@ -15,3 +15,5 @@ export { default as AlbumCard } from './album-card/album-card.jsx';
 export { default as PhotoCard } from './photo-card/photo-card.jsx';
 
 export { default as PostCard } from './post-card/post-card.jsx';
+
+export { default as CustomButton } from './custom-button/custom-buttom.jsx';
