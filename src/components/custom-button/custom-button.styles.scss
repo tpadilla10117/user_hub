@@ -22,3 +22,7 @@
       border: 1px solid black;
     }
 };
+
+.custom-button:not(:last-of-type) {
+    margin-bottom: 8px;
+};

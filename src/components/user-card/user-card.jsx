@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { CustomButton } from '../index.js';
 
 /* The user-card components, rendered with data from renderUser function */
 
@@ -38,9 +39,9 @@ const UserCard = (props) => {
                 <p><b>Company creed:</b>{user.company.catchPhrase}</p>
             </section>
             <footer>
-                {/* Put the custom-button here */}
-                <button className="load-posts">POSTS BY {user.username}</button>
-                <button className="load-albums">ALBUMS BY {user.username}</button> 
+                {/* Using custom-button component here */}
+                <CustomButton children={`POSTS BY ${user.username}`}/>
+                <CustomButton children={`ALBUMS BY ${user.username}`}/>
             </footer>
         </div>
         )
