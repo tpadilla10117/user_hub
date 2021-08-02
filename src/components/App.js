@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import './App.css';
-import { SectionWrapper, MainWrapper, UserList, UserCard, AlbumList} from './index';
+import { SectionWrapper, MainWrapper, UserList, UserCard, AlbumCard} from './index';
 import { BASE_URL, fetchUserAlbumList } from './utils.js';
 
 function App() {
@@ -58,7 +58,7 @@ function App() {
       <MainWrapper content={
         <SectionWrapper id="instructions" className="active"/> && 
         <SectionWrapper id="post-list" /* className="" */ /* content={'postlist'} */ /> && 
-        <SectionWrapper id="album-list" /* className="" */ content ={<AlbumList/>}/>}> {/* Needs 'active' class */}
+        <SectionWrapper id="album-list" /* className="" */ content ={<AlbumCard user={user}/>}/>}> {/* Needs 'active' class */}
     
       </MainWrapper>
 
