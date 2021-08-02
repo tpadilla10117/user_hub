@@ -12,3 +12,16 @@ const PhotoCard = ( { children, ...otherprops}) => (
 ) 
 
 export default PhotoCard;
+
+/* render a single photo */
+/* function renderPhoto(photo) {
+  const photoTemplate = $(`<div class="photo-card">
+  <a href="${photo.url}" target="_blank">
+    <img src="${photo.thumbnailUrl}">
+    <figure>${photo.title}</figure>
+  </a>
+</div>`)
+
+return photoTemplate;
+
+} */

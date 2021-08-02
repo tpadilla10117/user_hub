@@ -1,17 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import { CustomButton } from '../index.js';
+import { BASE_URL } from '../utils.js';
 
 /* The user-card components, rendered with data from renderUser function */
 
 const UserCard = (props) => {
     
     
-    const BASE_URL = "https://jsonplace-univclone.herokuapp.com";
-    const [ user, setUser ] = useState(null);
-    const { isActiveSectionVisible, setIsActiveSectionVisible } = props;
+    const { isActiveSectionVisible, setIsActiveSectionVisible, user, setUser, toggleActiveClass, fetchUserAlbumList } = props;
 
 /* This takes care of the fetch call needed for the renderUser in the DOM render: */
-    useEffect( () => { 
+    /* useEffect( () => { 
 
         async function fetchUsers() {
             try {
@@ -26,7 +25,7 @@ const UserCard = (props) => {
         
         fetchUsers();
         
-      }, []);
+      }, []); */
 
 
 /* Helper Function to toggle Active button; works with toggleActiveClass() below:*/
@@ -34,11 +33,7 @@ const UserCard = (props) => {
         /* changeCardState({...cardState, activeObject: cardState.objects[index]}) */
     }
 
-/* Helper Function to toggle active classNames in the button based on some value:*/
-    function toggleActiveClass() {
-        console.log("clicked")
-        return /* isActiveSectionVisible === false */ user ? "active button-active": "button-inactive"
-    }
+
 /* function toggleActiveStyles(index) {
     return cardState.objects[index] === cardState.activeObject ? "card__inner is-flipped active" : "card__inner";
 } */
@@ -60,7 +55,7 @@ const UserCard = (props) => {
             <footer>
                 {/* Using custom-button component here */}
                 <CustomButton children={`POSTS BY ${user.username}`} toggleActiveClass/* className={toggleActiveClass()} */ onClick={() => toggleActiveClass()}/>
-                <CustomButton children={`ALBUMS BY ${user.username}`}/>
+                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => fetchUserAlbumList(BASE_URL, user.id ) }/>
             </footer>
         </div>
         )

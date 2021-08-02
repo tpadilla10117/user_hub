@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { fetchUserAlbumList, BASE_URL } from "../utils";
 
 const AlbumList = (props) => {
     
 
     const [userAlbums, setUserAlbumsState ] = useState(null);
-    const BASE_URL = "https://jsonplace-univclone.herokuapp.com";
+    
 
    
-    useEffect( () => { 
+    /* useEffect( () => { 
   
         async function fetchUserAlbums(userId) {
             try {
@@ -22,9 +23,12 @@ const AlbumList = (props) => {
         
         fetchUserAlbums();
         
-      }, []);
+      }, []); */
 
-      console.log("Here is user from album-list:",userAlbums)
+      /* fetchUserAlbumList(BASE_URL,1); */
+
+
+      /* console.log("Here is user from album-list:",userAlbums) */
   
  /*    useEffect( () => {
         function fetchUserAlbumList() {

@@ -1,5 +1,8 @@
 /* FILE FOR ABSTRACTING AWAY API CALLS & OTHER FUNCTIONALITY: */
 
+/* The URL I fetch from */
+  export const BASE_URL = "https://jsonplace-univclone.herokuapp.com";
+
 /* fetchData function for abstract get requests / fetches: */
   export function fetchData(url) {
       /* call fetch on the passed in url */
@@ -10,4 +13,16 @@
       }).catch(function (error) {
         console.error(error);
       })
-    }
+    };
+
+/* Fetches album-list data (array of albums) for an intended user: */
+//Brings back id, title, userId
+  export function fetchUserAlbumList(url, userId) {
+    return fetch(`${url}/users/${userId}/albums`).then( function (response) {
+      /* return response.json(); */
+      console.log(response.json() );
+    }).catch(function (error) {
+      console.error(error);
+    })
+  };
+  
