@@ -7,7 +7,7 @@ import { BASE_URL } from '../utils.js';
 const UserCard = (props) => {
     
     
-    const { isActiveSectionVisible, setIsActiveSectionVisible, user, setUser, toggleActiveClass, fetchUserAlbumList } = props;
+    const { isActiveSectionVisible, setIsActiveSectionVisible, user, setUser, toggleActiveClass, fetchUserAlbumList, isActiveClickHandler } = props;
 
 /* This takes care of the fetch call needed for the renderUser in the DOM render: */
     /* useEffect( () => { 
@@ -54,8 +54,8 @@ const UserCard = (props) => {
             </section>
             <footer>
                 {/* Using custom-button component here */}
-                <CustomButton children={`POSTS BY ${user.username}`} toggleActiveClass/* className={toggleActiveClass()} */ onClick={() => toggleActiveClass()}/>
-                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => fetchUserAlbumList(BASE_URL, user.id ) }/>
+                <CustomButton children={`POSTS BY ${user.username}`} /* className={toggleActiveClass()} */ /* onClick={() => toggleActiveClass()} *//>
+                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => fetchUserAlbumList(BASE_URL, user.id ) && isActiveClickHandler() }/>
             </footer>
         </div>
         )

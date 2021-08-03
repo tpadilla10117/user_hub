@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './section-wrapper.styles.scss';
-import classnames from 'classnames';
+/* import styles from './section-wrapper.styles.scss'; */
+/* import classnames from 'classnames'; */
 
-const SectionWrapper = ( {content, grayBg, id} ) => {
-    const classNames = classnames(styles.SectionWrapper, { [styles.GrayBg]: grayBg} )
+const SectionWrapper = ( {content, grayBg, id, className} ) => {
+    /* const classNames = classnames(styles.SectionWrapper, { [styles.GrayBg]: grayBg} ) */
 
     return (
-        <section id={id} className={classNames}>
+        <section id={id} className={className}>
             {content}
         </section>
     )

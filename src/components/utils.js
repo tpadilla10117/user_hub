@@ -19,8 +19,8 @@
 //Brings back id, title, userId
   export function fetchUserAlbumList(url, userId) {
     return fetch(`${url}/users/${userId}/albums`).then( function (response) {
-      /* return response.json(); */
       console.log(response.json() );
+      /* return response.json(); */
     }).catch(function (error) {
       console.error(error);
     })
