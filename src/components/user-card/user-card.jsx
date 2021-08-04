@@ -7,26 +7,12 @@ import { BASE_URL } from '../utils.js';
 const UserCard = (props) => {
     
     
-    const { isActiveSectionVisible, setIsActiveSectionVisible, user, setUser, toggleActiveClass, fetchUserAlbumList, isActiveClickHandler, activeClass, setActiveClass } = props;
+    const { isActiveSectionVisible, setIsActiveSectionVisible, user, setUser, toggleActiveClass, fetchUserAlbumList, isActiveClickHandler, activeClass, setActiveClass, albumCardData, setAlbumCardData } = props;
 
-/* This takes care of the fetch call needed for the renderUser in the DOM render: */
-    /* useEffect( () => { 
+    
 
-        async function fetchUsers() {
-            try {
-                
-                const response = await fetch(`${BASE_URL}/users`);
-                response.json().then( result => setUser(result));
-              
-            } catch(error) {
-              console.error(error);
-            }
-          };
-        
-        fetchUsers();
-        
-      }, []); */
-
+    console.log("Here is the albumCard Data", albumCardData)
+  
 
 /* Helper Function to toggle Active button; works with toggleActiveClass() below:*/
     function toggleActiveButton() {
@@ -55,7 +41,7 @@ const UserCard = (props) => {
             <footer>
                 {/* Using custom-button component here */}
                 <CustomButton children={`POSTS BY ${user.username}`} /* className={toggleActiveClass()} */ /* onClick={() => toggleActiveClass()} *//>
-                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => fetchUserAlbumList(BASE_URL, user.id ) && setActiveClass(!activeClass)  }/>
+                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => {setAlbumCardData(fetchUserAlbumList(BASE_URL, user.id )); setActiveClass(!activeClass); }}/>
             </footer>
         </div>
         )

@@ -12,6 +12,7 @@ function App() {
   //Only render component if it is isActiveSection === true
   const [ isActiveSectionVisible, setActiveSectionVisible ] = useState(false);
   const [ user, setUser ] = useState(null);
+  const [ albumCardData, setAlbumCardData] = useState([]);
   
   const [ activeClass, setActiveClass ] = useState(false); //used to toggle an active class
 
@@ -32,6 +33,7 @@ function App() {
     fetchUsers();
     
   }, []);
+  
     
 
     //1) on click, makes the isActiveSection TRUE or FALSE
@@ -40,13 +42,13 @@ function App() {
 
   return (
     <div>
-      <UserList  isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} content={ <UserCard isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} user={user} setUser={setUser}  fetchUserAlbumList={fetchUserAlbumList} activeClass={activeClass} setActiveClass={setActiveClass}  /> }>
+      <UserList  isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} content={ <UserCard isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} user={user} setUser={setUser}  fetchUserAlbumList={fetchUserAlbumList} activeClass={activeClass} setActiveClass={setActiveClass} albumCardData={albumCardData} setAlbumCardData={setAlbumCardData}  /> }>
       </UserList>
 
       <MainWrapper content={
         <SectionWrapper id="instructions" /* className="active" *//> && 
         <SectionWrapper id="post-list" className={!activeClass ? 'inactive': 'active'} /* content={'postlist'} */ /> && 
-        <SectionWrapper id="album-list" className={activeClass /* && 'something to check post-list' */ ? 'active': 'inactive'} content ={<AlbumCard user={user}/>}/>}> {/* Needs 'active' class */}
+        <SectionWrapper id="album-list" className={activeClass /* && 'something to check post-list' */ ? 'active': 'inactive'} content ={<AlbumCard user={user} albumCardData={albumCardData} />}/>}> {/* Needs 'active' class */}
     
       </MainWrapper>
 

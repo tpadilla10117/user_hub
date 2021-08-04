@@ -4,7 +4,7 @@ import React from 'react';
 
 const AlbumCard = (props) => {
 
-    const {user} = props;
+    const {user, albumCardData} = props;
 
     const renderAlbumCard = (user, index) => {
         return (
@@ -18,10 +18,22 @@ const AlbumCard = (props) => {
             </div>
         )
     };
-
+/*This renders upon initial app render:  */
+//We need it to render ONLY if the appropriate button is clicked
     return (
         <>
-        {user && user.map(renderAlbumCard)}
+        {/* {user && user.map(renderAlbumCard)} */} 
+        {user && user.map(album => (
+            <div className="album-card" key={"user-"+ album.id}>
+                    <header>
+                        <h3>{album.title} by {album.username} </h3>
+                    </header>
+                    <section className="photo-list">
+                        {/* <div class="photo-card"></div> */}
+                    </section>
+            </div>
+        ))}
+        
         </>
     )
 } 
