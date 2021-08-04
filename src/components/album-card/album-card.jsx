@@ -42,34 +42,6 @@ export default AlbumCard;
 
 
 
- /* To template user-cards in the UI: */
-/*  const renderUser = (user, index) => {
-    return(
-        <div className="user-card" key={"user-" + index}>
-        <header>
-            <h2>{user.name}</h2>
-        </header>
-        <section className="company-info">
-            <p><b>Contact:</b>{user.email}</p>
-            <p><b>Works for:</b>{user.company.name}</p>
-            <p><b>Company creed:</b>{user.company.catchPhrase}</p>
-        </section>
-        <footer>
-            
-            <CustomButton children={`POSTS BY ${user.username}`} toggleActiveClass onClick={() => toggleActiveClass()}/>
-            <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => fetchUserAlbumList(BASE_URL, user.id ) }/>
-        </footer>
-    </div>
-    )
-};
-
-return (
-    <>
-    {user && user.map(renderUser)}; 
-    </>
-)
-} */
-
 
 /* render a single album */
 /* function renderAlbum(album) {
