@@ -18,11 +18,30 @@
 /* Fetches album-list data (array of albums) for an intended user: */
 //Brings back id, title, userId
   export function fetchUserAlbumList(url, userId) {
-    return fetch(`${url}/users/${userId}/albums`).then( function (response) {
-      console.log(response.json() );
-      /* return response.json(); */
+    return fetch(`${url}/users/${userId}/albums?_expand=user&_embed=photos`).then( function (response) {
+      /* console.log(response.json() ); */
+      return response.json();
     }).catch(function (error) {
       console.error(error);
     })
   };
+
+/* Fetches post-list data for an intended user: */
+//
+  export function fetchUserPostList() {
+
+  }
   
+
+
+  /* fetchUserPosts FUNCTION */
+/* function fetchUserPosts(userId) {
+  return fetchData(`${ BASE_URL }/users/${ userId }/posts?_expand=user`);
+}
+fetchUserPosts(1).then(console.log);  */
+
+/* fetchPostsComments FUNCTION */
+/* function fetchPostComments(postId) {
+  return fetchData(`${ BASE_URL }/posts/${ postId }/comments`);
+}
+fetchPostComments(1).then(console.log); */

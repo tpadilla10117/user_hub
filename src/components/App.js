@@ -12,7 +12,8 @@ function App() {
   //Only render component if it is isActiveSection === true
   const [ isActiveSectionVisible, setActiveSectionVisible ] = useState(false);
   const [ user, setUser ] = useState(null);
-  const [ activeSection, setActiveSection ] = useState('inactive');
+  
+  const [ activeClass, setActiveClass ] = useState(false); //used to toggle an active class
 
 
   useEffect( () => { 
@@ -31,31 +32,6 @@ function App() {
     fetchUsers();
     
   }, []);
-  
- 
-  //This is a toggler - handler that changes the state of isActiveSection to true:
-  function isActiveClickHandler() {
-    if (isActiveSectionVisible === false) {
-      
-      return setActiveSectionVisible(!isActiveSectionVisible);
-    } 
-
-    console.log("Here is the result:", isActiveSectionVisible);
-    console.log("HEre is the active stats:", activeSection)
-  };
-
-  /*  Helper Function to toggle active classNames in the button based on the value of isActiveClickHandler: */
-    useEffect( () => {
-      toggleActiveClass()
-    }, [isActiveSectionVisible]);
-
-  // 8/1:
-  //This needs to depend on something else to fire it off - can't just pass it into className, else it immediately fires
-    function toggleActiveClass() {
-      console.log("clicked")
-      return "active"
-      /* return user ? "active button-active": "button-inactive" */
-    }
     
 
     //1) on click, makes the isActiveSection TRUE or FALSE
@@ -64,13 +40,13 @@ function App() {
 
   return (
     <div>
-      <UserList  isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} content={ <UserCard isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} user={user} setUser={setUser} toggleActiveClass={toggleActiveClass} fetchUserAlbumList={fetchUserAlbumList} isActiveClickHandler={isActiveClickHandler}  /> }>
+      <UserList  isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} content={ <UserCard isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} user={user} setUser={setUser}  fetchUserAlbumList={fetchUserAlbumList} activeClass={activeClass} setActiveClass={setActiveClass}  /> }>
       </UserList>
 
       <MainWrapper content={
         <SectionWrapper id="instructions" /* className="active" *//> && 
-        <SectionWrapper id="post-list" /* className="" */ /* content={'postlist'} */ /> && 
-        <SectionWrapper id="album-list" className={activeSection} content ={<AlbumCard user={user}/>}/>}> {/* Needs 'active' class */}
+        <SectionWrapper id="post-list" className={!activeClass ? 'inactive': 'active'} /* content={'postlist'} */ /> && 
+        <SectionWrapper id="album-list" className={activeClass /* && 'something to check post-list' */ ? 'active': 'inactive'} content ={<AlbumCard user={user}/>}/>}> {/* Needs 'active' class */}
     
       </MainWrapper>
 
