@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import './App.css';
-import { SectionWrapper, MainWrapper, UserList, UserCard, AlbumCard} from './index';
+import { SectionWrapper, MainWrapper, UserList, UserCard, AlbumCard, Instructions} from './index';
 import { BASE_URL, fetchUserAlbumList } from './utils.js';
 
 function App() {
@@ -13,7 +12,7 @@ function App() {
   const [ isActiveSectionVisible, setActiveSectionVisible ] = useState(false);
   const [ user, setUser ] = useState(null);
   const [ albumCardData, setAlbumCardData] = useState([]);
-  
+  const [ componentVisibility, setComponentVisibility ] = useState(false);
   const [ activeClass, setActiveClass ] = useState(false); //used to toggle an active class
 
 
@@ -42,13 +41,13 @@ function App() {
 
   return (
     <div>
-      <UserList  isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} content={ <UserCard isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} user={user} setUser={setUser}  fetchUserAlbumList={fetchUserAlbumList} activeClass={activeClass} setActiveClass={setActiveClass} albumCardData={albumCardData} setAlbumCardData={setAlbumCardData}  /> }>
+      <UserList  isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} content={ <UserCard isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} user={user} setUser={setUser}  fetchUserAlbumList={fetchUserAlbumList} activeClass={activeClass} setActiveClass={setActiveClass} albumCardData={albumCardData} setAlbumCardData={setAlbumCardData} componentVisibility={componentVisibility} setComponentVisibility={setComponentVisibility} /> }>
       </UserList>
 
       <MainWrapper content={
-        <SectionWrapper id="instructions" /* className="active" *//> && 
+       
         <SectionWrapper id="post-list" className={!activeClass ? 'inactive': 'active'} /* content={'postlist'} */ /> && 
-        <SectionWrapper id="album-list" className={activeClass /* && 'something to check post-list' */ ? 'active': 'inactive'} content ={<AlbumCard user={user} albumCardData={albumCardData} />}/>}> {/* Needs 'active' class */}
+        <SectionWrapper id="album-list" className={activeClass /* && 'something to check post-list' */ ? 'active': 'inactive'} content ={componentVisibility ? <AlbumCard user={user} albumCardData={albumCardData} componentVisibility={componentVisibility}/> : <SectionWrapper id="instructions" /* className="active" */   content={<Instructions/> }       /> }/>}> {/* Needs 'active' class */}
     
       </MainWrapper>
 
@@ -57,3 +56,6 @@ function App() {
 }
 
 export default App;
+
+//rednering the album component:
+  //1) maybe render the component in the User-card component, so it renders based on the button click

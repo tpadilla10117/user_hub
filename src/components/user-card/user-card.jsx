@@ -1,30 +1,25 @@
 import React, {useState, useEffect} from 'react';
 import { CustomButton } from '../index.js';
 import { BASE_URL } from '../utils.js';
+import './user-card.styles.scss';
 
 /* The user-card components, rendered with data from renderUser function */
 
 const UserCard = (props) => {
     
     
-    const { isActiveSectionVisible, setIsActiveSectionVisible, user, setUser, toggleActiveClass, fetchUserAlbumList, isActiveClickHandler, activeClass, setActiveClass, albumCardData, setAlbumCardData } = props;
+    const { isActiveSectionVisible, setIsActiveSectionVisible, user, setUser, toggleActiveClass, fetchUserAlbumList, isActiveClickHandler, activeClass, setActiveClass, albumCardData, setAlbumCardData, componentVisibility, setComponentVisibility } = props;
 
     
 
     console.log("Here is the albumCard Data", albumCardData)
   
-
-/* Helper Function to toggle Active button; works with toggleActiveClass() below:*/
-    function toggleActiveButton() {
-        /* changeCardState({...cardState, activeObject: cardState.objects[index]}) */
-    }
-
-
-/* function toggleActiveStyles(index) {
-    return cardState.objects[index] === cardState.activeObject ? "card__inner is-flipped active" : "card__inner";
-} */
-
-
+    /* Handler for making the Parent Component visible */
+    const handleSectionComponentVisibility = () => {
+        setComponentVisibility(!componentVisibility)
+    
+    };
+console.log('Here is component visibiloty:', componentVisibility);
       
     /* To template user-cards in the UI: */
     const renderUser = (user, index) => {
@@ -41,7 +36,7 @@ const UserCard = (props) => {
             <footer>
                 {/* Using custom-button component here */}
                 <CustomButton children={`POSTS BY ${user.username}`} /* className={toggleActiveClass()} */ /* onClick={() => toggleActiveClass()} *//>
-                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => {setAlbumCardData(fetchUserAlbumList(BASE_URL, user.id )); setActiveClass(!activeClass); }}/>
+                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => {setAlbumCardData(fetchUserAlbumList(BASE_URL, user.id )); setActiveClass(!activeClass); handleSectionComponentVisibility(); }}/>
             </footer>
         </div>
         )

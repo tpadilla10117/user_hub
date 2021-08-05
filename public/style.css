@@ -1,0 +1,66 @@
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+    display: grid;
+    grid-template-columns: 360px minmax(360px, 1fr);
+    grid-gap: 8px;
+    background: #dddddd;
+    height: 100%;
+  }
+
+  #root main {
+    flex: 1;
+    grid-column: 2;
+    background: #eee;
+    padding: 24px;
+    overflow-y: scroll;
+  }
+  
+  #root > aside {
+    background-color: #eee;
+    padding: 24px;
+    grid-column: 1;
+    justify-content: center;
+  }
+  
+  #root > aside button {
+    background: #111;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 3px;
+  }
+
+  #album-list {
+    display: grid;
+    grid-gap: 24px;
+    overflow-y: scroll;
+    border: 10px solid blue;
+  };
+
+  #user-list,
+  #post-list,
+  #album-list {
+    display: grid;
+    grid-gap: 24px;
+    overflow-y: scroll;
+  }
+
+  #album-list {
+    grid-template-rows: repeat(auto-fit, auto);
+  }
+
+  #user-list {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fit, 1fr);
+  }
+
+  
+  
+  /* #root main > section:not(.active) {
+    display: none;
+  } */

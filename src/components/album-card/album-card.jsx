@@ -1,4 +1,5 @@
 import React from 'react';
+import './album-card.styles.scss';
 
 /* The album-card components: */
 
