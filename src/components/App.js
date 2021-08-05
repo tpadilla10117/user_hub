@@ -40,18 +40,25 @@ function App() {
   
 
   return (
-    <div>
+    <>
       <UserList  isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} content={ <UserCard isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} user={user} setUser={setUser}  fetchUserAlbumList={fetchUserAlbumList} activeClass={activeClass} setActiveClass={setActiveClass} albumCardData={albumCardData} setAlbumCardData={setAlbumCardData} componentVisibility={componentVisibility} setComponentVisibility={setComponentVisibility} /> }>
       </UserList>
 
       <MainWrapper content={
+
+        <SectionWrapper id="instructions"    content={<Instructions/> }       /> /* &&
        
-        <SectionWrapper id="post-list" className={!activeClass ? 'inactive': 'active'} /* content={'postlist'} */ /> && 
-        <SectionWrapper id="album-list" className={activeClass /* && 'something to check post-list' */ ? 'active': 'inactive'} content ={componentVisibility ? <AlbumCard user={user} albumCardData={albumCardData} componentVisibility={componentVisibility}/> : <SectionWrapper id="instructions" /* className="active" */   content={<Instructions/> }       /> }/>}> {/* Needs 'active' class */}
+        <SectionWrapper id="post-list" className={!activeClass ? 'inactive': 'active'}  /> && 
+        
+        <SectionWrapper id="album-list" className={activeClass ? 'active': 'inactive'} content ={ 
+          <AlbumCard user={user} albumCardData={albumCardData} /> 
+        }/> */
+        
+      }>
     
       </MainWrapper>
 
-    </div>
+    </>
   );
 }
 
