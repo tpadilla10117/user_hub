@@ -41,7 +41,10 @@ function App() {
 
   return (
     <>
-      <UserList  isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} content={ <UserCard isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} user={user} setUser={setUser}  fetchUserAlbumList={fetchUserAlbumList} activeClass={activeClass} setActiveClass={setActiveClass} albumCardData={albumCardData} setAlbumCardData={setAlbumCardData} componentVisibility={componentVisibility} setComponentVisibility={setComponentVisibility} /> }>
+      <UserList  isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} content={ 
+        
+        <UserCard isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} user={user} setUser={setUser}  fetchUserAlbumList={fetchUserAlbumList} activeClass={activeClass} setActiveClass={setActiveClass} albumCardData={albumCardData} setAlbumCardData={setAlbumCardData} componentVisibility={componentVisibility} setComponentVisibility={setComponentVisibility} /> }>
+          
       </UserList>
 
       <MainWrapper content={
