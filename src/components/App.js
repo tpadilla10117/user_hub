@@ -9,12 +9,15 @@ function App() {
   //state changes need to happen in <UserCard/> (triggered by custom-button click) & <SectionWrapper/> (need to change class to 'active')
   //Maybe it can be passed as a single prop to child components, then updated in each?
   //Only render component if it is isActiveSection === true
-  const [ isActiveSectionVisible, setActiveSectionVisible ] = useState(false);
+  
   const [ user, setUser ] = useState(null);
   const [ albumCardData, setAlbumCardData] = useState([]);
   const [ postCardData, setPostCardData] = useState([]);
+
   const [ componentVisibility, setComponentVisibility ] = useState(false);
   const [ activeClass, setActiveClass ] = useState(false); //used to toggle an active class
+  const [ instructionComponentActive, setInstructionComponentActive ] = useState('active');
+  const [ isActiveSectionVisible, setActiveSectionVisible ] = useState(false);
 
   
   //Consider making another form of state that runs a function to set the state on other components to false / a class "inactive"
@@ -36,33 +39,27 @@ function App() {
     fetchUsers();
     
   }, []);
-    
-
-    //1) on click, makes the isActiveSection TRUE or FALSE
-    //2) If isActiveSectionVisible, make the classname to TRUE && switch statement that returns appropriate component, else make it an ""
-  
 
   return (
     <>
       <UserList  isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} content={ 
         
-        <UserCard isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} user={user} setUser={setUser}  fetchUserAlbumList={fetchUserAlbumList} activeClass={activeClass} setActiveClass={setActiveClass} albumCardData={albumCardData} setAlbumCardData={setAlbumCardData} postCardData={postCardData} setPostCardData={setPostCardData}   componentVisibility={componentVisibility} setComponentVisibility={setComponentVisibility} /> }>
+        <UserCard isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} user={user} setUser={setUser}  fetchUserAlbumList={fetchUserAlbumList} activeClass={activeClass} setActiveClass={setActiveClass} albumCardData={albumCardData} setAlbumCardData={setAlbumCardData} postCardData={postCardData} setPostCardData={setPostCardData}   componentVisibility={componentVisibility} setComponentVisibility={setComponentVisibility} setInstructionComponentActive={setInstructionComponentActive} /> }>
           
       </UserList>
 
       <MainWrapper content={
 
+        // 8/6 -> DATA retrieval is successful, now need to conditionally render components on DOM so that the data populates BEFORE DOM render:
+
+
+        activeClass ?
+        <SectionWrapper id="instructions" className={instructionComponentActive} content={<Instructions/> }  /> :
+
         
+        <SectionWrapper id="post-list" className={!activeClass ? 'inactive': 'active'} content={  <PostCard user={user} postCardData={postCardData}/>   } /> 
 
-
-       /*  activeClass ? 
-        <SectionWrapper id="instructions"   content={<Instructions/> }       /> 
-
-        : */
-
-        <SectionWrapper id="post-list" className={!activeClass ? 'inactive': 'active'} content={  <PostCard user={user} postCardData={postCardData}/>   } /> /* &&
-
-        <SectionWrapper id="album-list" className={activeClass ? 'active': 'inactive'} componentVisibility={componentVisibility} content ={ 
+      /*   <SectionWrapper id="album-list" className={activeClass ? 'active': 'inactive'} componentVisibility={componentVisibility} content ={ 
           <AlbumCard user={user} albumCardData={albumCardData} /> 
         }/> */
         
@@ -77,6 +74,3 @@ function App() {
 }
 
 export default App;
-
-//rednering the album component:
-  //1) maybe render the component in the User-card component, so it renders based on the button click

@@ -9,7 +9,7 @@ const PostCard = ( props ) => {
 console.log('Calling postcard component:', postCardData);
 console.log('Looking for postcard data in post-card component:', postCardData[0]);
 
-
+// 8/6 -> my postCardData now has the Data, however, I can't use .map() on it YET since it's rendered already to the DOM
 
     return (
         <>

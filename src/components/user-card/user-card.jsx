@@ -8,7 +8,7 @@ import './user-card.styles.scss';
 const UserCard = (props) => {
     
     
-    const { isActiveSectionVisible, setIsActiveSectionVisible, user, setUser, toggleActiveClass, fetchUserAlbumList, isActiveClickHandler, activeClass, setActiveClass, albumCardData, setAlbumCardData, postCardData, setPostCardData, componentVisibility, setComponentVisibility } = props;
+    const { isActiveSectionVisible, setIsActiveSectionVisible, user, setUser, toggleActiveClass, fetchUserAlbumList, isActiveClickHandler, activeClass, setActiveClass, albumCardData, setAlbumCardData, postCardData, setPostCardData, componentVisibility, setComponentVisibility, setInstructionComponentActive } = props;
 
     
 
@@ -45,8 +45,8 @@ console.log('Here is component visibiloty:', componentVisibility);
             </section>
             <footer>
                 {/* Using custom-button component here */}
-                <CustomButton children={`POSTS BY ${user.username}`} onClick={ () =>  { fetchUserPostList(BASE_URL, user.id).then(setPostCardData); /* handleSectionComponentVisibility(); */ }  }/>
-                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => { setAlbumCardData(fetchUserAlbumList(BASE_URL, user.id )); setActiveClass(!activeClass); /* handleSectionComponentVisibility(); */ }}/>
+                <CustomButton children={`POSTS BY ${user.username}`} onClick={ () =>  { fetchUserPostList(BASE_URL, user.id).then(setPostCardData); setInstructionComponentActive('inactive'); /* handleSectionComponentVisibility(); */ }  }/>
+                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => { fetchUserAlbumList(BASE_URL, user.id ).then(setAlbumCardData); /* setActiveClass(!activeClass); */ setInstructionComponentActive('inactive')/* handleSectionComponentVisibility(); */ }}/>
             </footer>
         </div>
         )
