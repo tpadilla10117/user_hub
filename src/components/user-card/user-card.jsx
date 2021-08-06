@@ -36,7 +36,7 @@ console.log('Here is component visibiloty:', componentVisibility);
             <footer>
                 {/* Using custom-button component here */}
                 <CustomButton children={`POSTS BY ${user.username}`} /* className={toggleActiveClass()} */ /* onClick={() => toggleActiveClass()} *//>
-                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => {setAlbumCardData(fetchUserAlbumList(BASE_URL, user.id )); setActiveClass(!activeClass); handleSectionComponentVisibility(); }}/>
+                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => { setAlbumCardData(fetchUserAlbumList(BASE_URL, user.id )); setActiveClass(!activeClass); handleSectionComponentVisibility(); }}/>
             </footer>
         </div>
         )

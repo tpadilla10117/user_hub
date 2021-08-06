@@ -14,6 +14,7 @@ function App() {
   const [ albumCardData, setAlbumCardData] = useState([]);
   const [ componentVisibility, setComponentVisibility ] = useState(false);
   const [ activeClass, setActiveClass ] = useState(false); //used to toggle an active class
+  //Consider making another form of state that runs a function to set the state on other components to false / a class "inactive"
 
 
   useEffect( () => { 
@@ -32,7 +33,6 @@ function App() {
     fetchUsers();
     
   }, []);
-  
     
 
     //1) on click, makes the isActiveSection TRUE or FALSE
@@ -49,13 +49,28 @@ function App() {
 
       <MainWrapper content={
 
-        <SectionWrapper id="instructions"    content={<Instructions/> }       /> /* &&
+        
+
+
+        activeClass ? 
+        <SectionWrapper id="instructions"   content={<Instructions/> }       /> 
+
+        :
+
+        <SectionWrapper id="album-list" className={activeClass ? 'active': 'inactive'} componentVisibility={componentVisibility} content ={ 
+          <AlbumCard user={user} albumCardData={albumCardData} /> 
+        }/>
+        
+        
+        /* &&
        
         <SectionWrapper id="post-list" className={!activeClass ? 'inactive': 'active'}  /> && 
         
         <SectionWrapper id="album-list" className={activeClass ? 'active': 'inactive'} content ={ 
           <AlbumCard user={user} albumCardData={albumCardData} /> 
         }/> */
+
+        
         
       }>
     
