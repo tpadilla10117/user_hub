@@ -4,8 +4,10 @@ import './post.card.styles.scss';
 /* The post-card components: */
 
 const PostCard = ( props ) => {
-    const {user} = props;
+    const {user, postCardData} = props;
 
+console.log('Calling postcard component:', postCardData);
+console.log('Looking for postcard data in post-card component:', postCardData[0]);
 
 
 

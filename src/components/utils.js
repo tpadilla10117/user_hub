@@ -29,8 +29,8 @@
 /* Fetches post-list data for an intended user: */
   export function fetchUserPostList(url, userId) {
     return fetch(`${url}/users/${ userId }/posts?_expand=user`).then( function (response) {
-      /* return response.json(); */
-      console.log(response.json() );
+      return response.json();
+      /* console.log(response.json() ); */
     }).catch(function (error) {
       console.error(error);
     })

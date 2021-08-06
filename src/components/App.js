@@ -12,6 +12,7 @@ function App() {
   const [ isActiveSectionVisible, setActiveSectionVisible ] = useState(false);
   const [ user, setUser ] = useState(null);
   const [ albumCardData, setAlbumCardData] = useState([]);
+  const [ postCardData, setPostCardData] = useState([]);
   const [ componentVisibility, setComponentVisibility ] = useState(false);
   const [ activeClass, setActiveClass ] = useState(false); //used to toggle an active class
 
@@ -45,7 +46,7 @@ function App() {
     <>
       <UserList  isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} content={ 
         
-        <UserCard isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} user={user} setUser={setUser}  fetchUserAlbumList={fetchUserAlbumList} activeClass={activeClass} setActiveClass={setActiveClass} albumCardData={albumCardData} setAlbumCardData={setAlbumCardData} componentVisibility={componentVisibility} setComponentVisibility={setComponentVisibility} /> }>
+        <UserCard isActiveSectionVisible={isActiveSectionVisible} setActiveSectionVisible={setActiveSectionVisible} user={user} setUser={setUser}  fetchUserAlbumList={fetchUserAlbumList} activeClass={activeClass} setActiveClass={setActiveClass} albumCardData={albumCardData} setAlbumCardData={setAlbumCardData} postCardData={postCardData} setPostCardData={setPostCardData}   componentVisibility={componentVisibility} setComponentVisibility={setComponentVisibility} /> }>
           
       </UserList>
 
@@ -59,7 +60,7 @@ function App() {
 
         : */
 
-        <SectionWrapper id="post-list" className={!activeClass ? 'inactive': 'active'} content={  <PostCard user={user} />   } /> /* &&
+        <SectionWrapper id="post-list" className={!activeClass ? 'inactive': 'active'} content={  <PostCard user={user} postCardData={postCardData}/>   } /> /* &&
 
         <SectionWrapper id="album-list" className={activeClass ? 'active': 'inactive'} componentVisibility={componentVisibility} content ={ 
           <AlbumCard user={user} albumCardData={albumCardData} /> 

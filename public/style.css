@@ -53,19 +53,6 @@
     grid-template-rows: repeat(auto-fit, auto);
   }
 
-#user-list {
-  display: grid;
-  grid-gap: 24px;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(auto-fit, 1fr);
-  overflow-y: scroll; /* is not working... */
-}
-
-#user-list {
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(auto-fit, 1fr);
-}
-  
   
   /* #root main > section:not(.active) {
     display: none;
