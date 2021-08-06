@@ -27,18 +27,26 @@
   };
 
 /* Fetches post-list data for an intended user: */
-//
-  export function fetchUserPostList() {
-
-  }
+  export function fetchUserPostList(url, userId) {
+    return fetch(`${url}/users/${ userId }/posts?_expand=user`).then( function (response) {
+      /* return response.json(); */
+      console.log(response.json() );
+    }).catch(function (error) {
+      console.error(error);
+    })
+  };
   
+/* Fetches comment data on a user's post: */
+//8/6: NEED TO TEST
+  export function fetchPostComments(url, postId) {
+    return fetch(`${url}/posts/${ postId }/comments`).then( function (response) {
+      console.log(response.json);
+    }).catch(function (error) {
+      console.error(error);
+    })
+  };
 
 
-  /* fetchUserPosts FUNCTION */
-/* function fetchUserPosts(userId) {
-  return fetchData(`${ BASE_URL }/users/${ userId }/posts?_expand=user`);
-}
-fetchUserPosts(1).then(console.log);  */
 
 /* fetchPostsComments FUNCTION */
 /* function fetchPostComments(postId) {

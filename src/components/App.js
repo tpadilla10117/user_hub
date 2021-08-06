@@ -14,6 +14,8 @@ function App() {
   const [ albumCardData, setAlbumCardData] = useState([]);
   const [ componentVisibility, setComponentVisibility ] = useState(false);
   const [ activeClass, setActiveClass ] = useState(false); //used to toggle an active class
+
+  
   //Consider making another form of state that runs a function to set the state on other components to false / a class "inactive"
 
 

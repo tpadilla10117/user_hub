@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { CustomButton } from '../index.js';
-import { BASE_URL } from '../utils.js';
+import { BASE_URL, fetchUserPostList } from '../utils.js';
 import './user-card.styles.scss';
 
 /* The user-card components, rendered with data from renderUser function */
@@ -17,9 +17,23 @@ const UserCard = (props) => {
     /* Handler for making the Parent Component visible */
     const handleSectionComponentVisibility = () => {
         setComponentVisibility(!componentVisibility)
+        setActiveClass(false);
     
     };
 console.log('Here is component visibiloty:', componentVisibility);
+
+
+    /* Helper Function to toggle active classes for other components */
+
+    const activeClassHelperToggler = () => {
+        setActiveClass(activeClass); //Needs to set to false
+                                    //Needs to make the new component activwe
+    }
+
+
+
+
+
       
     /* To template user-cards in the UI: */
     const renderUser = (user, index) => {
@@ -35,8 +49,8 @@ console.log('Here is component visibiloty:', componentVisibility);
             </section>
             <footer>
                 {/* Using custom-button component here */}
-                <CustomButton children={`POSTS BY ${user.username}`} /* className={toggleActiveClass()} */ /* onClick={() => toggleActiveClass()} *//>
-                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => { setAlbumCardData(fetchUserAlbumList(BASE_URL, user.id )); setActiveClass(!activeClass); handleSectionComponentVisibility(); }}/>
+                <CustomButton children={`POSTS BY ${user.username}`} onClick={ () =>  { fetchUserPostList(BASE_URL, user.id); /* handleSectionComponentVisibility(); */ }  }/>
+                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => { setAlbumCardData(fetchUserAlbumList(BASE_URL, user.id )); setActiveClass(!activeClass); /* handleSectionComponentVisibility(); */ }}/>
             </footer>
         </div>
         )
