@@ -1,19 +1,34 @@
 import React from 'react';
+import './post.card.styles.scss';
 
 /* The post-card components: */
 
-const PostCard = ( { children, ...otherprops}) => (
-    <div class="post-card">
-        <header>
-            <h3>{}</h3>
-            <h3>{}</h3>
-        </header>
-        <p>{}</p>
-            <footer>
-            <div class="comment-list"></div>
-            {/* <a href="#" class="toggle-comments">(<span class="verb">show</span> comments)</a> */}
-        </footer>
-    </div>
-) 
+const PostCard = ( props ) => {
+    const {user} = props;
+
+
+
+
+    return (
+        <>
+            {user && user.map( post => (
+                <div className="post-card" key={'user-' + post.id}>
+                    <header>
+                        <h3>{post.title}</h3>
+                        <h3>{post.user}</h3>{/* needs to be post.user.username */}
+                    </header>
+                    <p>{post.body}</p>
+                        <footer>
+                        <div className="comment-list"></div>
+                        {/* <a href="#" class="toggle-comments">(<span class="verb">show</span> comments)</a> */}
+                    </footer>
+                </div>
+            ))}
+        </>
+    );
+};
 
 export default PostCard;
+
+
+

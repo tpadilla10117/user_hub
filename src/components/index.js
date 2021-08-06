@@ -10,8 +10,6 @@ export { default as UserCard } from './user-card/user-card.jsx';
 
 export { default as UserList } from './user-list/user-list.jsx';
 
-export { default as AlbumList } from './album-list/album-list.jsx';
-
 export { default as AlbumCard } from './album-card/album-card.jsx';
 
 export { default as PhotoCard } from './photo-card/photo-card.jsx';
