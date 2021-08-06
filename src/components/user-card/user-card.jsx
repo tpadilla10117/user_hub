@@ -15,12 +15,14 @@ const UserCard = (props) => {
     console.log("Here is the albumCard Data", albumCardData)
   
     /* Handler for making the Parent Component visible */
+    // 8/6 -> Need a way to ensure when you click on each "posts" or "albums" button, that each respective class e.g.-post-list REMAINS active, and that the cards populate with the right data pending on each user-card
     const handleSectionComponentVisibility = () => {
         setComponentVisibility(!componentVisibility)
-        setActiveClass(false);
+        setActiveClass(!activeClass);
     
     };
 console.log('Here is component visibiloty:', componentVisibility);
+
 
 
     /* Helper Function to toggle active classes for other components */
@@ -45,8 +47,8 @@ console.log('Here is component visibiloty:', componentVisibility);
             </section>
             <footer>
                 {/* Using custom-button component here */}
-                <CustomButton children={`POSTS BY ${user.username}`} onClick={ () =>  { fetchUserPostList(BASE_URL, user.id).then(setPostCardData); setInstructionComponentActive('inactive'); /* handleSectionComponentVisibility(); */ }  }/>
-                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => { fetchUserAlbumList(BASE_URL, user.id ).then(setAlbumCardData); /* setActiveClass(!activeClass); */ setInstructionComponentActive('inactive')/* handleSectionComponentVisibility(); */ }}/>
+                <CustomButton children={`POSTS BY ${user.username}`} onClick={ () =>  { fetchUserPostList(BASE_URL, user.id).then(setPostCardData); setInstructionComponentActive('inactive');  handleSectionComponentVisibility(); }  }/>
+                <CustomButton children={`ALBUMS BY ${user.username}`} onClick={ () => { fetchUserAlbumList(BASE_URL, user.id ).then(setAlbumCardData); /* setActiveClass(!activeClass); */ setInstructionComponentActive('inactive');handleSectionComponentVisibility(); }}/>
             </footer>
         </div>
         )

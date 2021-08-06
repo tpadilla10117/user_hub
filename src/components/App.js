@@ -14,7 +14,7 @@ function App() {
   const [ albumCardData, setAlbumCardData] = useState([]);
   const [ postCardData, setPostCardData] = useState([]);
 
-  const [ componentVisibility, setComponentVisibility ] = useState(false);
+  const [ componentVisibility, setComponentVisibility ] = useState(false); //Use to unmount components?
   const [ activeClass, setActiveClass ] = useState(false); //used to toggle an active class
   const [ instructionComponentActive, setInstructionComponentActive ] = useState('active');
   const [ isActiveSectionVisible, setActiveSectionVisible ] = useState(false);
@@ -50,14 +50,17 @@ function App() {
 
       <MainWrapper content={
 
+        componentVisibility && 
         // 8/6 -> DATA retrieval is successful, now need to conditionally render components on DOM so that the data populates BEFORE DOM render:
+
+        //Need to unmount instructions component when click on one of these buttons -> can I use a React Hook?
 
 
         activeClass ?
         <SectionWrapper id="instructions" className={instructionComponentActive} content={<Instructions/> }  /> :
 
         
-        <SectionWrapper id="post-list" className={!activeClass ? 'inactive': 'active'} content={  <PostCard user={user} postCardData={postCardData}/>   } /> 
+        <SectionWrapper id="post-list" className={!activeClass ? 'inactive': 'active'}  content={  <PostCard user={user} postCardData={postCardData}/>   } /> 
 
       /*   <SectionWrapper id="album-list" className={activeClass ? 'active': 'inactive'} componentVisibility={componentVisibility} content ={ 
           <AlbumCard user={user} albumCardData={albumCardData} /> 
@@ -68,6 +71,7 @@ function App() {
       }>
     
       </MainWrapper>
+    
 
     </>
   );
